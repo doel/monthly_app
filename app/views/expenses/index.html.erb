@@ -1,0 +1,31 @@
+<h1><%= pluralize(@expenses.count, "Item")%> </h1>
+<table border=1>
+<tr border=1>
+
+    <td>Sr. No:</td>
+    <td>Item</td>
+    <td>Min Amount</td>
+    <td>Max Amount</td>
+</tr>
+
+<% @expenses.each do |e| %>
+  <br>
+    <tr border=1>
+
+    <td><%= e.id %></td>
+    <td><%= e.item %></td>
+    <td><%= e.min_amount %></td>
+    <td><%= e.max_amount %></td>
+  <%end%>
+</tr>
+
+<tr border=0>
+  <td></td>
+  <td><strong>Sum</strong></td>
+  <td><strong><%= number_to_currency(Expense.min_amount_sum[0]) %></strong></td>
+  <td><strong><%= number_to_currency(Expense.min_amount_sum[1]) %></strong></td>
+</tr>
+    
+
+
+</table>
